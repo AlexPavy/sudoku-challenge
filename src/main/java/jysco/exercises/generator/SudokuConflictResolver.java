@@ -28,7 +28,7 @@ public class SudokuConflictResolver {
         for (ConstrainingNumber uniqueNb : allUniqueConstrainingNbs) {
             if (attemptToReplaceNb(uniqueNb, constrainingNumbers)) return uniqueNb.getValue();
         }
-        return -3;
+        return -4;
     }
 
     private boolean attemptToReplaceNb(ConstrainingNumber uniqueNb, OrderedConstrainingNumbers constrainingNumbers) {

@@ -3,7 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8"/>
     <title>Sudoku Challenge</title>
-    <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="main.css" />
     <script src="http://localhost:35729/livereload.js"></script>
 </head>
 <body>
@@ -16,13 +16,21 @@
             <table class="sudokuTable">
                 <tr th:each="row : ${part}">
                     <td class="sudokuCell" th:each="cell : ${row}">
-                        <span th:text="${cell}"></span>
+                        <div th:if="${cell}">
+                            <span th:text="${cell}"></span>
+                        </div>
+                        <div th:unless="${cell}">
+                            <input class="nb_input" type="number" min="1" max="9" />
+                        </div>
                     </td>
                 </tr>
             </table>
         </td>
     </tr>
 </table>
+
+<button>
+</button>
 
 </body>
 </html>

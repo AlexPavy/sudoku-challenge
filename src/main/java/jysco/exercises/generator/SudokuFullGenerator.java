@@ -57,7 +57,7 @@ public class SudokuFullGenerator {
 
     private int generateRandomValidValue(SortedSet<Integer> usedNumbers) {
         if (usedNumbers.size() >= 9) {
-            return SUDOKU_SIZE - usedNumbers.size();
+            return SUDOKU_SIZE - usedNumbers.size() - 1;
         }
         int val = random.nextInt(SUDOKU_SIZE - usedNumbers.size()) + 1;
         for (Integer usedNumber : usedNumbers) {

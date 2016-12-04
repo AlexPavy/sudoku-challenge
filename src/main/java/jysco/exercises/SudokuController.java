@@ -1,5 +1,6 @@
 package jysco.exercises;
 
+import jysco.exercises.gamify.Gamifier;
 import jysco.exercises.generator.SudokuFullGeneratorWithRetry;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,9 +14,10 @@ import static jysco.exercises.SudokuBoard.SUDOKU_PART_SIZE;
 public class SudokuController {
 
     @GetMapping("/")
-    public String getNewBoard(Model model) {
+    public String generateNewGame(Model model) {
         final Random random = new Random();
         SudokuBoard sudokuBoard = new SudokuFullGeneratorWithRetry(random).generate();
+        new Gamifier(random, sudokuBoard).gamify();
         int[][][][] splitSudoku = splitSudoku(sudokuBoard.getBoard());
         model.addAttribute("sudoku", splitSudoku);
         return "index";
