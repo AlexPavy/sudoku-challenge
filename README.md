@@ -1,4 +1,8 @@
 # sudoku-challenge
-Sudoku generator and game
+Sudoku generator
 
-![alt tag](https://github.com/AlexPavy/sudoku-challenge/blob/master/src/main/resources/screen.PNG)
+Uses :
+[Spring initializr](http://start.spring.io/)
+[Thymeleaf](http://www.thymeleaf.org/)
+
+![alt tag](https://github.com/AlexPavy/sudoku-challenge/blob/master/doc/screen.PNG)
