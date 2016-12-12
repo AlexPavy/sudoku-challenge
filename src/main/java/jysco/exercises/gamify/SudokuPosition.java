@@ -36,4 +36,11 @@ public class SudokuPosition {
         return result;
     }
 
+    @Override
+    public String toString() {
+        return "SudokuPosition{" +
+                "i=" + i +
+                ", j=" + j +
+                '}';
+    }
 }

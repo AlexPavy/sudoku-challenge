@@ -1,8 +1,11 @@
 package jysco.exercises.gamify;
 
 import jysco.exercises.SudokuBoard;
+import org.slf4j.LoggerFactory;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static jysco.exercises.SudokuBoard.SUDOKU_SIZE;
@@ -23,14 +26,17 @@ public class Gamifier {
     /**
      * Changes the difficulty
      */
-    public static final String DEFAULT_MAX_HOLES = "36";
+    public static final String DEFAULT_MAX_HOLES = "43";
 
     private final int maxHoles;
+
+    private final org.slf4j.Logger logger;
 
     public Gamifier(Random random, SudokuBoard sudokuBoard, Integer maxHoles) {
         this.random = random;
         this.sudokuBoard = sudokuBoard;
         this.maxHoles = maxHoles;
+        this.logger = LoggerFactory.getLogger(getClass());
     }
 
     public void gamify() {
@@ -45,9 +51,12 @@ public class Gamifier {
             if (solutionValidator.hasAnyOtherSolution(sudokuBoard.getSudokuCopy(), addedHoles)) {
                 setValueAtPosition(holeAttempt, savedValue);
                 a++;
+                logger.info("Tried to add a hole but gave more than one solution, " +
+                        "Attempt number: " + a + " , " + holeAttempt);
             } else {
                 addedHoles.add(new SudokuPosition(holeAttempt.getI(), holeAttempt.getJ()));
                 holes++;
+                logger.info("Added new hole. " + "Number of holes added: " + holes);
             }
             possibleHoles.remove(holeAttempt);
         }
