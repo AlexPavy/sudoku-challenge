@@ -1,5 +1,5 @@
 # sudoku-challenge
-Sudoku generator
+### Sudoku generator
 
 Each time the page is refreshed, the server generates a new random Sudoku game with a unique solution
 
