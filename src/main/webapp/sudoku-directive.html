@@ -1,0 +1,37 @@
+<h2>Sudoku Challenge</h2>
+<br />
+
+<table class="sudokuTable">
+    <tr ng-repeat="(k1, rowPart) in sudoku track by $index">
+        <td class="sudokuPart" ng-repeat="(k2, part) in rowPart track by $index">
+            <table class="sudokuTable">
+                <tr ng-repeat="(k3, row) in part track by $index">
+                    <td class="sudokuCell" ng-repeat="(k4, cell) in row track by $index">
+                        <div ng-if="board[k1][k2][k3][k4]">
+                            <span>{{board[k1][k2][k3][k4]}}</span>
+                        </div>
+                        <div ng-if="!board[k1][k2][k3][k4]"
+                             ng-class="{invalidCell : (validated[k1][k2][k3][k4] == -1)}">
+                            <input ng-model="sudoku[k1][k2][k3][k4]"
+                                   class="nb_input" type="number" min="1" max="9" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<br />
+<p ng-show="status == 'INVALID'">We have found some errors, marked in red</p>
+<h3 ng-show="status == 'VALID' && !givenUp">Congratulations, you have successfully finished the Sudoku !!</h3>
+<h3 ng-show="status == 'VALID' && givenUp">This is the correct solution</h3>
+
+<br />
+<button ng-click="checkSolution()">
+    Check solution
+</button>
+
+<button class="showSolution" ng-click="showSolution()">
+    Show solution
+</button>

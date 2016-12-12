@@ -1,0 +1,23 @@
+{
+  "name": "sudoku-challenge",
+  "description": "sudoku game",
+  "main": "index.html",
+  "authors": [
+    "alex.pavy"
+  ],
+  "license": "UNLICENCED",
+  "keywords": [
+    "sudoku"
+  ],
+  "homepage": "https://github.com/AlexPavy/sudoku-challenge",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.0"
+  }
+}

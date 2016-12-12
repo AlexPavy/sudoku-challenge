@@ -1,36 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head lang="en">
     <meta charset="UTF-8"/>
     <title>Sudoku Challenge</title>
     <link rel="stylesheet" href="main.css" />
-    <script src="http://localhost:35729/livereload.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="app.js"></script>
 </head>
-<body>
 
-<h2>Sudoku Challenge</h2>
-<br />
-<table class="sudokuTable">
-    <tr th:each="rowPart : ${sudoku}">
-        <td class="sudokuPart" th:each="part : ${rowPart}">
-            <table class="sudokuTable">
-                <tr th:each="row : ${part}">
-                    <td class="sudokuCell" th:each="cell : ${row}">
-                        <div th:if="${cell}">
-                            <span th:text="${cell}"></span>
-                        </div>
-                        <div th:unless="${cell}">
-                            <input class="nb_input" type="number" min="1" max="9" />
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-</table>
+<body ng-app="sudokuApp">
 
-<button>
-</button>
+<sudoku-directive></sudoku-directive>
 
 </body>
+
 </html>

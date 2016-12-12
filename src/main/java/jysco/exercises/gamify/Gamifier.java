@@ -23,11 +23,14 @@ public class Gamifier {
     /**
      * Changes the difficulty
      */
-    private static final int MAX_HOLES = 36;
+    public static final String DEFAULT_MAX_HOLES = "36";
 
-    public Gamifier(Random random, SudokuBoard sudokuBoard) {
+    private final int maxHoles;
+
+    public Gamifier(Random random, SudokuBoard sudokuBoard, Integer maxHoles) {
         this.random = random;
         this.sudokuBoard = sudokuBoard;
+        this.maxHoles = maxHoles;
     }
 
     public void gamify() {
@@ -35,7 +38,7 @@ public class Gamifier {
         final List<SudokuPosition> addedHoles = newArrayList();
         int a = 0, holes = 0;
 
-        while (possibleHoles.size() > 0 && a < MAX_ATTEMPTS && holes < MAX_HOLES) {
+        while (possibleHoles.size() > 0 && a < MAX_ATTEMPTS && holes < maxHoles) {
             SudokuPosition holeAttempt = possibleHoles.get(random.nextInt(possibleHoles.size()));
             int savedValue = replaceValueWithHole(holeAttempt);
             UniqueSolutionValidator solutionValidator = new UniqueSolutionValidator(sudokuBoard.getSudokuCopy());
