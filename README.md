@@ -5,14 +5,14 @@ Each time the page is refreshed, the server generates a new random Sudoku game w
 
 ### Start the server
 
-1. Front-end : In folder [src/main/webapp](https://github.com/AlexPavy/sudoku-challenge/tree/master/src/main/webapp), 
+1) Front-end : In folder [src/main/webapp](https://github.com/AlexPavy/sudoku-challenge/tree/master/src/main/webapp), 
 
 run 
 
 * npm install
 * bower install
 
-2. Back-end : Spring boot, Maven
+2) Back-end : Spring boot, Maven
 
 run
 * mvn install
