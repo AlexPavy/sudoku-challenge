@@ -5,17 +5,18 @@ Each time the page is refreshed, the server generates a new random Sudoku game w
 
 ### Start the server
 
-* Front-end : In folder [src/main/webapp](https://github.com/AlexPavy/sudoku-challenge/tree/master/src/main/webapp), 
+1. Front-end : In folder [src/main/webapp](https://github.com/AlexPavy/sudoku-challenge/tree/master/src/main/webapp), 
 
 run 
 
-npm install
+* npm install
+* bower install
 
-bower install
+2. Back-end : Spring boot, Maven
 
-* Back-end : Spring boot,
-
-run 
+run
+* mvn install
+* Then start
 ```java
 jysco.exercises.SudokuChallengeApplication
 ```
